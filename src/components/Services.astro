@@ -1,131 +1,187 @@
 ---
-const services = [
-  {
-    title: "Land Acquisition",
-    description: "Expert guidance in identifying, evaluating, and acquiring prime land opportunities that align with your investment goals and budget.",
-    icon: "🏞️",
-    features: [
-      "Market research and analysis",
-      "Property identification",
-      "Negotiation support",
-      "Due diligence coordination"
-    ]
-  },
-  {
-    title: "Property Development",
-    description: "Comprehensive development services from initial planning through project completion, maximizing your land's potential and value.",
-    icon: "🏗️",
-    features: [
-      "Feasibility studies",
-      "Zoning and permitting",
-      "Project management",
-      "Construction oversight"
-    ]
-  },
-  {
-    title: "Investment Consulting",
-    description: "Strategic investment advice to help you build a profitable land portfolio with optimal risk management and growth potential.",
-    icon: "📈",
-    features: [
-      "Portfolio analysis",
-      "Risk assessment",
-      "Market timing strategies",
-      "ROI optimization"
-    ]
-  },
-  {
-    title: "Due Diligence",
-    description: "Thorough property investigations to ensure you make informed decisions and avoid costly surprises in your land investments.",
-    icon: "🔍",
-    features: [
-      "Title research",
-      "Environmental assessments",
-      "Survey coordination",
-      "Legal compliance review"
-    ]
-  },
-  {
-    title: "Market Analysis",
-    description: "In-depth market research and trend analysis to identify emerging opportunities and optimal timing for your land transactions.",
-    icon: "📊",
-    features: [
-      "Comparative market analysis",
-      "Trend forecasting",
-      "Demographic studies",
-      "Economic impact assessment"
-    ]
-  },
-  {
-    title: "Asset Management",
-    description: "Ongoing management and optimization of your land assets to ensure maximum returns and long-term value appreciation.",
-    icon: "💼",
-    features: [
-      "Property maintenance",
-      "Lease management",
-      "Tax optimization",
-      "Exit strategy planning"
-    ]
-  }
-];
+// No props needed - services are defined in component
 ---
 
-<section class="section-padding bg-gray-50">
+<section class="section-padding bg-secondary-50">
   <div class="container-custom">
-    <div class="text-center mb-16">
-      <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Our <span class="text-gradient">Services</span>
+    <div class="text-center mb-16 fade-in-scroll">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-secondary-900 mb-6">
+        Comprehensive Land Development Services
       </h2>
-      <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
-        Comprehensive land services designed to maximize your investment potential and ensure successful outcomes at every stage of your journey.
+      <p class="text-xl text-secondary-600 max-w-3xl mx-auto">
+        From initial planning to project completion, we provide end-to-end land development solutions that maximize value and minimize risk.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service, index) => (
-        <div class={`animate-on-scroll stagger-${(index % 4) + 1} card-hover bg-white rounded-xl p-8 shadow-lg border border-gray-100`}>
-          <div class="text-4xl mb-6">{service.icon}</div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-          
-          <ul class="space-y-3 mb-8">
-            {service.features.map((feature) => (
-              <li class="flex items-center text-gray-700">
-                <svg class="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          
-          <a href="/contact" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-300">
-            Learn More
-            <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+    <div class="stagger-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Site Planning & Design -->
+      <div class="stagger-item card p-8 opacity-0">
+        <div class="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+          </svg>
         </div>
-      ))}
+        <h3 class="text-2xl font-serif font-semibold text-secondary-900 mb-4">Site Planning & Design</h3>
+        <p class="text-secondary-600 mb-6">
+          Expert site analysis, master planning, and design services that optimize land use while ensuring compliance with local regulations and environmental standards.
+        </p>
+        <ul class="text-secondary-600 space-y-2">
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Topographical surveys and analysis
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Master planning and layout design
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Zoning compliance and optimization
+          </li>
+        </ul>
+      </div>
+
+      <!-- Permitting & Compliance -->
+      <div class="stagger-item card p-8 opacity-0">
+        <div class="w-16 h-16 bg-accent-100 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-serif font-semibold text-secondary-900 mb-4">Permitting & Compliance</h3>
+        <p class="text-secondary-600 mb-6">
+          Navigate complex regulatory requirements with our comprehensive permitting services, ensuring your project meets all local, state, and federal standards.
+        </p>
+        <ul class="text-secondary-600 space-y-2">
+          <li class="flex items-start">
+            <span class="text-accent-600 mr-2">•</span>
+            Zoning and variance applications
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent-600 mr-2">•</span>
+            Environmental permit coordination
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent-600 mr-2">•</span>
+            Municipal approval processes
+          </li>
+        </ul>
+      </div>
+
+      <!-- Infrastructure Development -->
+      <div class="stagger-item card p-8 opacity-0">
+        <div class="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-serif font-semibold text-secondary-900 mb-4">Infrastructure Development</h3>
+        <p class="text-secondary-600 mb-6">
+          Complete infrastructure installation including roads, utilities, and drainage systems designed for long-term reliability and efficiency.
+        </p>
+        <ul class="text-secondary-600 space-y-2">
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Road construction and paving
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Utility installation and coordination
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Stormwater management systems
+          </li>
+        </ul>
+      </div>
+
+      <!-- Environmental Assessment -->
+      <div class="stagger-item card p-8 opacity-0">
+        <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-serif font-semibold text-secondary-900 mb-4">Environmental Assessment</h3>
+        <p class="text-secondary-600 mb-6">
+          Comprehensive environmental impact assessments and sustainable development practices that protect natural resources while maximizing development potential.
+        </p>
+        <ul class="text-secondary-600 space-y-2">
+          <li class="flex items-start">
+            <span class="text-green-600 mr-2">•</span>
+            Environmental impact studies
+          </li>
+          <li class="flex items-start">
+            <span class="text-green-600 mr-2">•</span>
+            Wetland delineation and protection
+          </li>
+          <li class="flex items-start">
+            <span class="text-green-600 mr-2">•</span>
+            Sustainable development planning
+          </li>
+        </ul>
+      </div>
+
+      <!-- Construction Management -->
+      <div class="stagger-item card p-8 opacity-0">
+        <div class="w-16 h-16 bg-accent-100 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-serif font-semibold text-secondary-900 mb-4">Construction Management</h3>
+        <p class="text-secondary-600 mb-6">
+          Professional project management ensuring quality construction, on-time delivery, and budget compliance throughout the development process.
+        </p>
+        <ul class="text-secondary-600 space-y-2">
+          <li class="flex items-start">
+            <span class="text-accent-600 mr-2">•</span>
+            Project scheduling and coordination
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent-600 mr-2">•</span>
+            Quality control and inspections
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent-600 mr-2">•</span>
+            Budget management and reporting
+          </li>
+        </ul>
+      </div>
+
+      <!-- Consultation & Planning -->
+      <div class="stagger-item card p-8 opacity-0">
+        <div class="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-serif font-semibold text-secondary-900 mb-4">Consultation & Planning</h3>
+        <p class="text-secondary-600 mb-6">
+          Strategic consultation services to help you make informed decisions about your land development investment and maximize your return on investment.
+        </p>
+        <ul class="text-secondary-600 space-y-2">
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Feasibility studies and analysis
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Market research and planning
+          </li>
+          <li class="flex items-start">
+            <span class="text-primary-600 mr-2">•</span>
+            Investment strategy development
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="mt-16 text-center">
-      <div class="animate-on-scroll bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-12 text-white">
-        <h3 class="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Start Your Land Investment Journey?
-        </h3>
-        <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
-          Let our experienced team guide you through every step of the process. Contact us today for a free consultation.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="bg-white text-primary-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-            Get Free Consultation
-          </a>
-          <a href="/properties" class="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300">
-            View Properties
-          </a>
-        </div>
-      </div>
+    <div class="text-center mt-16 fade-in-scroll">
+      <a href="/contact" class="btn-primary btn-hover text-lg px-8 py-4">
+        Start Your Project Today
+      </a>
     </div>
   </div>
 </section>

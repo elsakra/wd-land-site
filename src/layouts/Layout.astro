@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 export interface Props {
   title: string;
   description?: string;
@@ -8,8 +10,8 @@ export interface Props {
 
 const {
   title,
-  description = "WD Land - Your trusted partner for land acquisition, development, and investment opportunities. Expert guidance for all your land needs.",
-  image = "/og-image.jpg",
+  description = 'WD Land - Premier land development services transforming raw land into thriving communities. Expert planning, permitting, and construction management.',
+  image = '/og-image.jpg',
   canonical
 } = Astro.props;
 
@@ -44,36 +46,27 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "RealEstateAgent",
+        "@type": "Organization",
         "name": "WD Land",
-        "description": "Professional land acquisition, development, and investment services",
         "url": "https://wdland.com",
-        "logo": "https://wdland.com/logo.svg",
+        "description": "Premier land development services transforming raw land into thriving communities",
         "address": {
           "@type": "PostalAddress",
           "addressCountry": "US"
         },
-        "serviceArea": {
-          "@type": "State",
-          "name": "United States"
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": "English"
         },
-        "services": [
-          "Land Acquisition",
-          "Property Development",
-          "Investment Consulting",
-          "Due Diligence",
-          "Market Analysis"
-        ]
+        "sameAs": []
       }
     </script>
     
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-900 antialiased">
+  <body class="min-h-screen bg-white">
     <slot />
-    
-    <script>
-      import '../scripts/animations.ts';
-    </script>
+    <script src="../scripts/animations.ts"></script>
   </body>
 </html>

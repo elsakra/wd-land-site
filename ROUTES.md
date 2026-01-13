@@ -1,94 +1,60 @@
 # WD Land Website Routes
 
-This document lists all the routes created for the WD Land website and their purposes.
+This document lists all the routes created for the WD Land website and their corresponding purposes.
 
 ## Main Pages
 
-### `/` (Homepage)
-- **File**: `src/pages/index.astro`
-- **Purpose**: Main landing page with hero section, services overview, about section, features, testimonials, and contact form
-- **Components**: Hero, Services, About, Contact sections
-
-### `/services`
-- **File**: `src/pages/services.astro`
-- **Purpose**: Detailed overview of all services offered by WD Land
-- **Content**: Land Acquisition, Property Development, Investment Consulting, Due Diligence, Market Analysis, Asset Management
-
-### `/about`
-- **File**: `src/pages/about.astro`
-- **Purpose**: Company information, team, values, mission, and company timeline
-- **Content**: Company overview, core values, team members, company milestones
-
-### `/properties`
-- **File**: `src/pages/properties.astro`
-- **Purpose**: Showcase available land investment opportunities
-- **Content**: Featured properties, investment process, market insights, property filters
-
-### `/contact`
-- **File**: `src/pages/contact.astro`
-- **Purpose**: Contact information, contact form, FAQ, and service areas
-- **Content**: Contact form, office information, FAQ section, service areas
+| Route | File | Description | Source |
+|-------|------|-------------|---------|
+| `/` | `src/pages/index.astro` | Homepage with hero, about, services, and contact sections | Original site root |
+| `/about` | `src/pages/about.astro` | Detailed about page with company story, values, and team | Navigation requirement |
+| `/services` | `src/pages/services.astro` | Comprehensive services page with detailed offerings | Navigation requirement |
+| `/projects` | `src/pages/projects.astro` | Portfolio page showcasing completed projects | Navigation requirement |
+| `/contact` | `src/pages/contact.astro` | Contact page with form and contact information | Navigation requirement |
 
 ## Blog Routes
 
-### `/blog`
-- **File**: `src/pages/blog/index.astro`
-- **Purpose**: Blog homepage with featured articles, categories, and newsletter signup
-- **Content**: Featured article, recent posts, categories filter, newsletter signup
+| Route | File | Description | Source |
+|-------|------|-------------|---------|
+| `/blog` | `src/pages/blog/index.astro` | Blog index page listing all articles | Navigation requirement |
+| `/blog/[slug]` | `src/pages/blog/[slug].astro` | Individual blog post pages | Dynamic routing for blog content |
 
-### `/blog/[slug]`
-- **File**: `src/pages/blog/[slug].astro`
-- **Purpose**: Individual blog post pages
-- **Dynamic Routes**:
-  - `/blog/land-investment-trends-2024`
-  - `/blog/due-diligence-checklist`
-  - `/blog/maximizing-land-value`
+## Blog Posts
 
-## Content Collections
+| Route | File | Description |
+|-------|------|--------------|
+| `/blog/welcome-to-wd-land` | `src/content/blog/welcome-to-wd-land.md` | Welcome post introducing WD Land |
+| `/blog/land-development-process` | `src/content/blog/land-development-process.md` | Guide to the land development process |
+| `/blog/sustainable-development-practices` | `src/content/blog/sustainable-development-practices.md` | Article on sustainable development |
 
-### Blog Posts
-- **Location**: `src/content/blog/`
-- **Files**:
-  - `land-investment-trends-2024.md`
-  - `due-diligence-checklist.md`
-  - `maximizing-land-value.md`
+## Legal Pages
 
-## Components
-
-### Layout Components
-- `src/layouts/Layout.astro` - Main layout with SEO and meta tags
-- `src/components/Header.astro` - Navigation header
-- `src/components/Footer.astro` - Site footer
-
-### Page Components
-- `src/components/Hero.astro` - Reusable hero section
-- `src/components/Services.astro` - Services overview
-- `src/components/About.astro` - About section
-- `src/components/Contact.astro` - Contact form and information
-
-## Static Assets
-
-### Favicon
-- `public/favicon.svg` - Site favicon with WD branding
-
-## Configuration Files
-
-### Content Configuration
-- `src/content/config.ts` - Astro content collections configuration
-
-### Styling
-- `src/styles/global.css` - Global styles and Tailwind imports
-- `tailwind.config.mjs` - Tailwind CSS configuration
-
-### Scripts
-- `src/scripts/animations.ts` - Animation and interaction scripts
+| Route | File | Description | Source |
+|-------|------|-------------|---------|
+| `/privacy` | `src/pages/privacy.astro` | Privacy policy page | Footer link requirement |
+| `/terms` | `src/pages/terms.astro` | Terms of service page | Footer link requirement |
 
 ## Notes
 
-- All routes are static and generated at build time
-- Blog routes use Astro Content Collections for type-safe content management
-- All internal links point to actual routes (no placeholder links)
-- SEO optimization included on all pages
-- Mobile-responsive design throughout
-- Accessibility features implemented
-- Performance optimized with lazy loading and efficient animations
+- All routes are functional and properly linked in the navigation
+- Blog routes use Astro Content Collections for content management
+- Legal pages are accessible via footer links
+- All internal links point to actual pages (no placeholder routes)
+- The site structure supports both static and dynamic content
+
+## Navigation Structure
+
+**Header Navigation:**
+- Home (`/`)
+- About (`/about`)
+- Services (`/services`)
+- Projects (`/projects`)
+- Blog (`/blog`)
+- Contact (`/contact`)
+
+**Footer Navigation:**
+- All main pages
+- Privacy Policy (`/privacy`)
+- Terms of Service (`/terms`)
+
+All routes have been tested and are fully functional with proper content and styling.

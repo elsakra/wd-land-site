@@ -1,118 +1,67 @@
 ---
-const stats = [
-  { number: "500+", label: "Properties Sold" },
-  { number: "$50M+", label: "Total Transactions" },
-  { number: "15+", label: "Years Experience" },
-  { number: "98%", label: "Client Satisfaction" }
-];
-
-const values = [
-  {
-    title: "Integrity",
-    description: "We conduct business with the highest ethical standards, ensuring transparency and honesty in every transaction.",
-    icon: "🤝"
-  },
-  {
-    title: "Expertise",
-    description: "Our team brings decades of combined experience in land acquisition, development, and investment strategies.",
-    icon: "🎯"
-  },
-  {
-    title: "Results",
-    description: "We're committed to delivering exceptional outcomes that exceed our clients' expectations and investment goals.",
-    icon: "🏆"
-  },
-  {
-    title: "Partnership",
-    description: "We build long-term relationships with our clients, serving as trusted advisors throughout their investment journey.",
-    icon: "🤝"
-  }
-];
+// No props needed - content is defined in component
 ---
 
 <section class="section-padding bg-white">
   <div class="container-custom">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <!-- Content -->
-      <div>
-        <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          About <span class="text-gradient">WD Land</span>
+      <div class="fade-in-scroll">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-secondary-900 mb-6">
+          Transforming Land Into Thriving Communities
         </h2>
-        <p class="animate-on-scroll stagger-1 text-xl text-gray-600 mb-8 leading-relaxed">
-          For over 15 years, WD Land has been the trusted partner for investors, developers, and landowners seeking to maximize their real estate potential. Our comprehensive approach combines deep market knowledge with personalized service to deliver exceptional results.
+        <p class="text-xl text-secondary-600 mb-6 leading-relaxed">
+          At WD Land, we believe every piece of land has untapped potential. With decades of combined experience in land development, we've built our reputation on transforming raw land into valuable, sustainable communities.
         </p>
-        <p class="animate-on-scroll stagger-2 text-lg text-gray-600 mb-8 leading-relaxed">
-          We specialize in identifying prime land opportunities, conducting thorough due diligence, and providing strategic guidance throughout the entire acquisition and development process. Our team's expertise spans residential, commercial, agricultural, and recreational properties across diverse markets.
+        <p class="text-secondary-600 mb-8 leading-relaxed">
+          Our comprehensive approach combines expert planning, environmental stewardship, and innovative design to create developments that enhance property values while respecting the natural landscape. From initial site analysis to final project completion, we manage every aspect of the development process with precision and integrity.
         </p>
-        <div class="animate-on-scroll stagger-3">
-          <a href="/contact" class="btn-primary">
-            Work With Us
-          </a>
+        
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary-600 mb-2">25+</div>
+            <div class="text-secondary-600">Years Experience</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary-600 mb-2">100+</div>
+            <div class="text-secondary-600">Projects Completed</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary-600 mb-2">1000+</div>
+            <div class="text-secondary-600">Acres Developed</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary-600 mb-2">98%</div>
+            <div class="text-secondary-600">Client Satisfaction</div>
+          </div>
         </div>
+        
+        <a href="/about" class="btn-primary btn-hover">
+          Learn More About Us
+        </a>
       </div>
 
-      <!-- Image -->
-      <div class="animate-on-scroll stagger-2">
+      <!-- Image/Visual -->
+      <div class="fade-in-scroll">
         <div class="relative">
-          <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl">
-            <img 
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-              alt="Professional team meeting" 
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
+          <div class="bg-gradient-to-br from-primary-100 to-accent-100 rounded-2xl p-8 h-96 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-24 h-24 bg-gradient-to-br from-primary-600 to-primary-800 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-serif font-semibold text-secondary-900 mb-4">Expert Land Development</h3>
+              <p class="text-secondary-600">
+                Professional planning and execution for maximum value and sustainable growth.
+              </p>
+            </div>
           </div>
-          <div class="absolute -bottom-6 -right-6 bg-primary-600 text-white p-6 rounded-xl shadow-lg">
-            <div class="text-3xl font-bold">15+</div>
-            <div class="text-sm">Years of Excellence</div>
-          </div>
+          
+          <!-- Floating elements -->
+          <div class="absolute -top-4 -right-4 w-16 h-16 bg-accent-400 rounded-lg opacity-20 transform rotate-12"></div>
+          <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-primary-400 rounded-full opacity-20"></div>
         </div>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="mb-20">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map((stat, index) => (
-          <div class={`animate-on-scroll stagger-${index + 1} text-center`}>
-            <div class="text-4xl md:text-5xl font-bold text-primary-600 mb-2">{stat.number}</div>
-            <div class="text-gray-600 font-medium">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Values -->
-    <div>
-      <div class="text-center mb-16">
-        <h3 class="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-          Our Core Values
-        </h3>
-        <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
-          These principles guide everything we do and ensure we deliver exceptional value to our clients.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {values.map((value, index) => (
-          <div class={`animate-on-scroll stagger-${(index % 4) + 1} text-center`}>
-            <div class="text-4xl mb-4">{value.icon}</div>
-            <h4 class="text-xl font-bold text-gray-900 mb-4">{value.title}</h4>
-            <p class="text-gray-600 leading-relaxed">{value.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Mission Statement -->
-    <div class="mt-20">
-      <div class="animate-on-scroll bg-gradient-to-r from-primary-50 to-primary-100 rounded-2xl p-12 text-center">
-        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-          Our Mission
-        </h3>
-        <p class="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-          To empower our clients with the knowledge, resources, and expertise needed to make informed land investment decisions that create lasting value and achieve their financial goals.
-        </p>
       </div>
     </div>
   </div>

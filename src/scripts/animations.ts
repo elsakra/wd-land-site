@@ -2,36 +2,72 @@ import { animate, inView, scroll } from '@motionone/dom';
 
 // Initialize animations when DOM is loaded
 function initAnimations() {
-  // Animate elements on scroll
-  const animateElements = document.querySelectorAll<HTMLElement>('.animate-on-scroll');
-  
-  animateElements.forEach((element, index) => {
+  // Fade in elements on scroll
+  const fadeElements = document.querySelectorAll<HTMLElement>('.fade-in-scroll');
+  fadeElements.forEach((element) => {
     inView(element, () => {
-      animate(
-        element,
-        { opacity: [0, 1], y: [30, 0] },
-        { duration: 0.6, delay: index * 0.1 }
+      animate(element, 
+        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
+        { duration: 0.6, easing: 'ease-out' }
       );
     });
   });
 
+  // Stagger animation for cards
+  const cardContainers = document.querySelectorAll<HTMLElement>('.stagger-container');
+  cardContainers.forEach((container) => {
+    const cards = container.querySelectorAll<HTMLElement>('.stagger-item');
+    inView(container, () => {
+      cards.forEach((card, index) => {
+        animate(card,
+          { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
+          { duration: 0.5, delay: index * 0.1, easing: 'ease-out' }
+        );
+      });
+    });
+  });
+
+  // Hero text animation
+  const heroTitle = document.querySelector<HTMLElement>('.hero-title');
+  const heroSubtitle = document.querySelector<HTMLElement>('.hero-subtitle');
+  const heroButtons = document.querySelector<HTMLElement>('.hero-buttons');
+  
+  if (heroTitle) {
+    animate(heroTitle,
+      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
+      { duration: 0.8, delay: 0.2, easing: 'ease-out' }
+    );
+  }
+  
+  if (heroSubtitle) {
+    animate(heroSubtitle,
+      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
+      { duration: 0.8, delay: 0.4, easing: 'ease-out' }
+    );
+  }
+  
+  if (heroButtons) {
+    animate(heroButtons,
+      { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0px)'] },
+      { duration: 0.8, delay: 0.6, easing: 'ease-out' }
+    );
+  }
+
   // Navbar scroll effect
-  const navbar = document.querySelector<HTMLElement>('nav');
+  const navbar = document.querySelector<HTMLElement>('.navbar');
   if (navbar) {
     scroll(({ y }) => {
       if (y.current > 50) {
-        navbar.classList.add('backdrop-blur-md', 'bg-white/90', 'shadow-lg');
-        navbar.classList.remove('bg-transparent');
+        navbar.classList.add('scrolled');
       } else {
-        navbar.classList.remove('backdrop-blur-md', 'bg-white/90', 'shadow-lg');
-        navbar.classList.add('bg-transparent');
+        navbar.classList.remove('scrolled');
       }
     });
   }
 
-  // Button hover animations
-  const buttons = document.querySelectorAll<HTMLElement>('.btn-primary, .btn-secondary');
-  buttons.forEach(button => {
+  // Button hover effects
+  const buttons = document.querySelectorAll<HTMLElement>('.btn-hover');
+  buttons.forEach((button) => {
     button.addEventListener('mouseenter', () => {
       animate(button, { scale: 1.05 }, { duration: 0.2 });
     });
@@ -41,63 +77,15 @@ function initAnimations() {
     });
   });
 
-  // Card hover animations
-  const cards = document.querySelectorAll<HTMLElement>('.card-hover');
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      animate(card, { y: -5, scale: 1.02 }, { duration: 0.3 });
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      animate(card, { y: 0, scale: 1 }, { duration: 0.3 });
-    });
-  });
-
-  // Smooth scroll for anchor links
-  const anchorLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
-  anchorLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href')?.substring(1);
-      const targetElement = document.getElementById(targetId || '');
-      
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-
-  // Mobile menu toggle
-  const mobileMenuButton = document.querySelector<HTMLElement>('[data-mobile-menu-toggle]');
-  const mobileMenu = document.querySelector<HTMLElement>('[data-mobile-menu]');
-  
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('open');
-      
-      if (isOpen) {
-        animate(mobileMenu, { opacity: [1, 0], y: [0, -10] }, { duration: 0.2 });
-        setTimeout(() => {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('open');
-        }, 200);
-      } else {
-        mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.add('open');
-        animate(mobileMenu, { opacity: [0, 1], y: [-10, 0] }, { duration: 0.2 });
-      }
-    });
-  }
-
   // Parallax effect for hero background
   const heroSection = document.querySelector<HTMLElement>('.hero-parallax');
   if (heroSection) {
     scroll(({ y }) => {
       const rate = y.current * -0.5;
-      animate(heroSection, { y: rate }, { duration: 0 });
+      animate(heroSection, 
+        { transform: `translateY(${rate}px)` },
+        { duration: 0 }
+      );
     });
   }
 }

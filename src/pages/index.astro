@@ -2,162 +2,113 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
 import About from '../components/About.astro';
+import Services from '../components/Services.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
-
-const pageTitle = "WD Land - Expert Land Acquisition & Investment Services";
-const pageDescription = "Your trusted partner for land acquisition, development, and investment opportunities. Expert guidance for maximizing your real estate potential with proven results.";
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout 
+  title="WD Land - Premier Land Development Services"
+  description="Transform your raw land into thriving communities with WD Land's expert development services. Site planning, permitting, infrastructure, and construction management."
+>
   <Header />
   
   <main>
     <Hero 
-      title="Expert Land Investment Solutions"
-      subtitle="Trusted Partner"
-      description="Maximize your real estate potential with our comprehensive land acquisition, development, and investment services. From due diligence to deal closure, we guide you every step of the way."
-      primaryCTA={{ text: "Start Your Journey", href: "/contact" }}
-      secondaryCTA={{ text: "View Properties", href: "/properties" }}
-      backgroundImage="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-      overlay={true}
+      title="Transform Your Land Into Valuable Communities"
+      subtitle="Expert land development services from planning to completion. We maximize your property's potential while ensuring sustainable, profitable development."
+      primaryCTA={{
+        text: "Start Your Project",
+        href: "/contact"
+      }}
+      secondaryCTA={{
+        text: "View Our Services",
+        href: "/services"
+      }}
     />
-    
-    <Services />
     
     <About />
     
-    <!-- Features Section -->
+    <Services />
+    
+    <!-- Process Section -->
     <section class="section-padding bg-white">
       <div class="container-custom">
-        <div class="text-center mb-16">
-          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Why Choose <span class="text-gradient">WD Land</span>?
+        <div class="text-center mb-16 fade-in-scroll">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-secondary-900 mb-6">
+            Our Proven Development Process
           </h2>
-          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
-            Our proven track record and comprehensive approach set us apart in the land investment industry.
+          <p class="text-xl text-secondary-600 max-w-3xl mx-auto">
+            From initial assessment to project completion, we follow a systematic approach that ensures success at every stage.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="animate-on-scroll stagger-1 text-center p-8">
-            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+        <div class="stagger-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="stagger-item text-center opacity-0">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              1
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Proven Track Record</h3>
-            <p class="text-gray-600">Over 500 successful transactions and $50M+ in total deals completed with exceptional client satisfaction.</p>
+            <h3 class="text-xl font-serif font-semibold text-secondary-900 mb-3">Assessment</h3>
+            <p class="text-secondary-600">
+              Comprehensive site analysis, feasibility studies, and market research to determine optimal development strategy.
+            </p>
           </div>
-
-          <div class="animate-on-scroll stagger-2 text-center p-8">
-            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+          
+          <div class="stagger-item text-center opacity-0">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              2
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Fast & Efficient</h3>
-            <p class="text-gray-600">Streamlined processes and deep market knowledge enable us to close deals quickly and efficiently.</p>
+            <h3 class="text-xl font-serif font-semibold text-secondary-900 mb-3">Planning</h3>
+            <p class="text-secondary-600">
+              Master planning, design development, and regulatory approval to ensure compliance and maximize value.
+            </p>
           </div>
-
-          <div class="animate-on-scroll stagger-3 text-center p-8">
-            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
+          
+          <div class="stagger-item text-center opacity-0">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              3
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Expert Guidance</h3>
-            <p class="text-gray-600">15+ years of combined experience providing strategic advice and comprehensive market insights.</p>
+            <h3 class="text-xl font-serif font-semibold text-secondary-900 mb-3">Development</h3>
+            <p class="text-secondary-600">
+              Infrastructure installation, utility coordination, and construction management with quality assurance.
+            </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section-padding bg-gray-50">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Client <span class="text-gradient">Success Stories</span>
-          </h2>
-          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
-            Hear from our satisfied clients who have achieved their land investment goals with our expert guidance.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="animate-on-scroll stagger-1 bg-white rounded-xl p-8 shadow-lg">
-            <div class="flex items-center mb-6">
-              <div class="flex text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+          
+          <div class="stagger-item text-center opacity-0">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              4
             </div>
-            <p class="text-gray-600 mb-6 italic">"WD Land helped us identify and acquire the perfect development site. Their market knowledge and negotiation skills saved us both time and money. Highly recommended!"</p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                <span class="text-primary-600 font-semibold">JS</span>
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">John Smith</div>
-                <div class="text-gray-500 text-sm">Real Estate Developer</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="animate-on-scroll stagger-2 bg-white rounded-xl p-8 shadow-lg">
-            <div class="flex items-center mb-6">
-              <div class="flex text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-            <p class="text-gray-600 mb-6 italic">"The due diligence process was thorough and professional. WD Land uncovered potential issues that could have been costly. Their expertise gave us confidence in our investment."</p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                <span class="text-primary-600 font-semibold">MJ</span>
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">Maria Johnson</div>
-                <div class="text-gray-500 text-sm">Investment Manager</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="animate-on-scroll stagger-3 bg-white rounded-xl p-8 shadow-lg">
-            <div class="flex items-center mb-6">
-              <div class="flex text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-            <p class="text-gray-600 mb-6 italic">"From start to finish, the WD Land team provided exceptional service. They understood our goals and delivered results that exceeded our expectations. True professionals!"</p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                <span class="text-primary-600 font-semibold">RW</span>
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">Robert Wilson</div>
-                <div class="text-gray-500 text-sm">Private Investor</div>
-              </div>
-            </div>
+            <h3 class="text-xl font-serif font-semibold text-secondary-900 mb-3">Completion</h3>
+            <p class="text-secondary-600">
+              Final inspections, documentation, and ongoing support to ensure long-term success and satisfaction.
+            </p>
           </div>
         </div>
       </div>
     </section>
     
-    <Contact />
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-br from-primary-600 to-primary-800">
+      <div class="container-custom text-center fade-in-scroll">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-6">
+          Ready to Unlock Your Land's Potential?
+        </h2>
+        <p class="text-xl text-primary-100 mb-8 max-w-3xl mx-auto">
+          Partner with WD Land and transform your property into a valuable, sustainable development. Contact us today for a comprehensive consultation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-secondary btn-hover bg-white text-primary-600 hover:bg-primary-50">
+            Get Free Consultation
+          </a>
+          <a href="tel:+1234567890" class="btn-primary btn-hover bg-primary-500 hover:bg-primary-400 border-primary-400">
+            Call (123) 456-7890
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <Contact showForm={false} />
   </main>
   
   <Footer />
