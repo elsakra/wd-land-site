@@ -1,0 +1,274 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Footer from '../../components/Footer.astro';
+
+const pageTitle = "Land Investment Blog - WD Land";
+const pageDescription = "Expert insights, market analysis, and investment strategies for successful land acquisition and development. Stay informed with our latest articles.";
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredPost = sortedPosts[0];
+const recentPosts = sortedPosts.slice(1);
+
+const categories = [
+  { name: "All", count: posts.length },
+  { name: "Investment", count: posts.filter(post => post.data.tags.includes('investment')).length },
+  { name: "Market Analysis", count: posts.filter(post => post.data.tags.includes('market-analysis')).length },
+  { name: "Due Diligence", count: posts.filter(post => post.data.tags.includes('due-diligence')).length },
+  { name: "Trends", count: posts.filter(post => post.data.tags.includes('trends')).length }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  
+  <main>
+    <Hero 
+      title="Land Investment Insights"
+      subtitle="Expert Knowledge"
+      description="Stay ahead of the market with expert insights, analysis, and strategies for successful land investment and development."
+      primaryCTA={{ text: "Subscribe", href: "/contact" }}
+      secondaryCTA={{ text: "Latest Articles", href: "#articles" }}
+      backgroundImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      overlay={true}
+    />
+    
+    <!-- Featured Article -->
+    {featuredPost && (
+      <section class="section-padding bg-white">
+        <div class="container-custom">
+          <div class="text-center mb-12">
+            <h2 class="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Featured <span class="text-gradient">Article</span>
+            </h2>
+          </div>
+          
+          <div class="max-w-4xl mx-auto">
+            <article class="animate-on-scroll card-hover bg-gray-50 rounded-2xl overflow-hidden shadow-lg">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="p-8 lg:p-12">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-semibold">
+                      Featured
+                    </span>
+                    <time class="text-gray-500 text-sm">
+                      {featuredPost.data.pubDate.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+                  
+                  <h3 class="text-3xl font-bold text-gray-900 mb-4">
+                    <a href={`/blog/${featuredPost.slug}`} class="hover:text-primary-600 transition-colors duration-300">
+                      {featuredPost.data.title}
+                    </a>
+                  </h3>
+                  
+                  <p class="text-gray-600 mb-6 leading-relaxed">
+                    {featuredPost.data.description}
+                  </p>
+                  
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-gray-500 text-sm">By {featuredPost.data.author}</span>
+                    </div>
+                    
+                    <a href={`/blog/${featuredPost.slug}`} class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-300">
+                      Read More
+                      <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="lg:p-8">
+                  <div class="h-64 lg:h-full bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl flex items-center justify-center">
+                    <div class="text-6xl">
+                      📊
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Categories Filter -->
+    <section class="py-8 bg-gray-50">
+      <div class="container-custom">
+        <div class="flex flex-wrap justify-center gap-4">
+          {categories.map((category) => (
+            <button class="px-6 py-3 rounded-lg border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white transition-all duration-300 font-semibold">
+              {category.name} ({category.count})
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Articles -->
+    <section id="articles" class="section-padding bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-16">
+          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Latest <span class="text-gradient">Articles</span>
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+            Expert insights and analysis to help you make informed land investment decisions.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {recentPosts.map((post, index) => (
+            <article class={`animate-on-scroll stagger-${(index % 3) + 1} card-hover bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100`}>
+              <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                <div class="text-4xl">
+                  {post.data.tags.includes('investment') ? '💰' : 
+                   post.data.tags.includes('market-analysis') ? '📊' :
+                   post.data.tags.includes('due-diligence') ? '🔍' :
+                   post.data.tags.includes('trends') ? '📈' : '📝'}
+                </div>
+              </div>
+              
+              <div class="p-6">
+                <div class="flex items-center space-x-2 mb-4">
+                  <time class="text-gray-500 text-sm">
+                    {post.data.pubDate.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
+                  </time>
+                  <span class="text-gray-300">•</span>
+                  <span class="text-gray-500 text-sm">{post.data.author}</span>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                  <a href={`/blog/${post.slug}`} class="hover:text-primary-600 transition-colors duration-300">
+                    {post.data.title}
+                  </a>
+                </h3>
+                
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                  {post.data.description}
+                </p>
+                
+                <div class="flex items-center justify-between">
+                  <div class="flex flex-wrap gap-2">
+                    {post.data.tags.slice(0, 2).map((tag) => (
+                      <span class="bg-primary-100 text-primary-800 px-2 py-1 rounded text-xs font-semibold">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <a href={`/blog/${post.slug}`} class="text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-300 text-sm">
+                    Read More →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section-padding bg-gray-50">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="animate-on-scroll bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-12 text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+              Stay Informed with Market Insights
+            </h2>
+            <p class="text-xl mb-8 text-primary-100">
+              Subscribe to our newsletter for the latest market analysis, investment opportunities, and expert insights delivered to your inbox.
+            </p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+              <input 
+                type="email" 
+                placeholder="Enter your email address"
+                class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
+                required
+              />
+              <button type="submit" class="bg-white text-primary-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                Subscribe
+              </button>
+            </form>
+            
+            <p class="text-primary-200 text-sm mt-4">
+              No spam, unsubscribe at any time. We respect your privacy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Resources -->
+    <section class="section-padding bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-16">
+          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Additional <span class="text-gradient">Resources</span>
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore more resources to enhance your land investment knowledge and success.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="animate-on-scroll stagger-1 text-center p-8 bg-gray-50 rounded-xl">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Investment Guides</h3>
+            <p class="text-gray-600 mb-6">Comprehensive guides covering all aspects of land investment from beginner to advanced strategies.</p>
+            <a href="/contact" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-300">
+              Access Guides →
+            </a>
+          </div>
+
+          <div class="animate-on-scroll stagger-2 text-center p-8 bg-gray-50 rounded-xl">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Market Reports</h3>
+            <p class="text-gray-600 mb-6">Regular market analysis and reports to keep you informed about trends and opportunities.</p>
+            <a href="/contact" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-300">
+              View Reports →
+            </a>
+          </div>
+
+          <div class="animate-on-scroll stagger-3 text-center p-8 bg-gray-50 rounded-xl">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Expert Consultation</h3>
+            <p class="text-gray-600 mb-6">One-on-one consultations with our experts to discuss your specific investment goals and strategies.</p>
+            <a href="/contact" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-300">
+              Schedule Call →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

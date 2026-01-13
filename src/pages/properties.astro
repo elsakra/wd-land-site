@@ -1,0 +1,397 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Available Properties - WD Land";
+const pageDescription = "Explore our curated selection of premium land investment opportunities. From residential development to commercial and agricultural properties.";
+
+const properties = [
+  {
+    id: 1,
+    title: "Prime Development Land - Sunset Ridge",
+    location: "Austin, TX",
+    acreage: "45 acres",
+    price: "$2,250,000",
+    type: "Residential Development",
+    description: "Exceptional development opportunity in rapidly growing Austin market. Zoned for residential development with utilities nearby.",
+    features: [
+      "Zoned for residential development",
+      "Utilities at property line",
+      "Rolling topography with mature trees",
+      "Close to major highways",
+      "Growing suburban market"
+    ],
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    status: "Available"
+  },
+  {
+    id: 2,
+    title: "Commercial Corner Lot",
+    location: "Dallas, TX",
+    acreage: "2.5 acres",
+    price: "$875,000",
+    type: "Commercial",
+    description: "High-visibility corner lot on major thoroughfare. Perfect for retail, office, or mixed-use development.",
+    features: [
+      "High traffic count location",
+      "Corner lot with dual frontage",
+      "Commercial zoning in place",
+      "All utilities available",
+      "Growing commercial district"
+    ],
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    status: "Available"
+  },
+  {
+    id: 3,
+    title: "Agricultural Investment Property",
+    location: "Waco, TX",
+    acreage: "120 acres",
+    price: "$1,440,000",
+    type: "Agricultural",
+    description: "Productive farmland with excellent soil quality and water rights. Currently generating income through crop production.",
+    features: [
+      "Productive agricultural land",
+      "Water rights included",
+      "Existing farm infrastructure",
+      "Multiple income streams",
+      "Long-term appreciation potential"
+    ],
+    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    status: "Under Contract"
+  },
+  {
+    id: 4,
+    title: "Recreational Ranch Property",
+    location: "Hill Country, TX",
+    acreage: "85 acres",
+    price: "$1,700,000",
+    type: "Recreational",
+    description: "Beautiful ranch property with creek frontage, mature oak trees, and abundant wildlife. Perfect for hunting or family retreat.",
+    features: [
+      "Creek frontage and water features",
+      "Abundant wildlife and hunting",
+      "Mature oak trees throughout",
+      "Existing cabin and barn",
+      "Private and secluded location"
+    ],
+    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    status: "Available"
+  },
+  {
+    id: 5,
+    title: "Industrial Development Site",
+    location: "Houston, TX",
+    acreage: "15 acres",
+    price: "$1,125,000",
+    type: "Industrial",
+    description: "Strategically located industrial site near major transportation corridors. Ideal for warehouse, distribution, or manufacturing.",
+    features: [
+      "Industrial zoning approved",
+      "Near major highways and rail",
+      "Flat, buildable terrain",
+      "Heavy utility infrastructure",
+      "Growing industrial corridor"
+    ],
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    status: "Available"
+  },
+  {
+    id: 6,
+    title: "Waterfront Development Opportunity",
+    location: "Lake Travis, TX",
+    acreage: "8 acres",
+    price: "$2,400,000",
+    type: "Waterfront Residential",
+    description: "Rare waterfront property on Lake Travis with development potential. Stunning lake views and private cove access.",
+    features: [
+      "Direct lake frontage",
+      "Private cove and dock potential",
+      "Elevated building sites",
+      "Luxury market location",
+      "Subdivision potential"
+    ],
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    status: "Available"
+  }
+];
+
+const propertyTypes = ["All", "Residential Development", "Commercial", "Agricultural", "Recreational", "Industrial", "Waterfront Residential"];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  
+  <main>
+    <Hero 
+      title="Premium Land Investment Opportunities"
+      subtitle="Available Properties"
+      description="Discover carefully curated land investment opportunities across Texas. From development sites to agricultural properties, find your next successful investment."
+      primaryCTA={{ text: "Contact Us", href: "/contact" }}
+      secondaryCTA={{ text: "Investment Guide", href: "/blog" }}
+      backgroundImage="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      overlay={true}
+    />
+    
+    <!-- Property Filters -->
+    <section class="section-padding bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Featured <span class="text-gradient">Properties</span>
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Explore our current inventory of premium land investment opportunities, each carefully evaluated for maximum potential.
+          </p>
+          
+          <!-- Filter Buttons -->
+          <div class="animate-on-scroll stagger-2 flex flex-wrap justify-center gap-4 mb-12">
+            {propertyTypes.map((type) => (
+              <button class="px-6 py-3 rounded-lg border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white transition-all duration-300 font-semibold">
+                {type}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Properties Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {properties.map((property, index) => (
+            <div class={`animate-on-scroll stagger-${(index % 3) + 1} card-hover bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100`}>
+              <div class="relative">
+                <img 
+                  src={property.image} 
+                  alt={property.title} 
+                  class="w-full h-64 object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute top-4 left-4">
+                  <span class={`px-3 py-1 rounded-full text-sm font-semibold ${
+                    property.status === 'Available' 
+                      ? 'bg-green-100 text-green-800' 
+                      : 'bg-yellow-100 text-yellow-800'
+                  }`}>
+                    {property.status}
+                  </span>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span class="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    {property.type}
+                  </span>
+                </div>
+              </div>
+              
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{property.title}</h3>
+                <div class="flex items-center text-gray-600 mb-4">
+                  <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {property.location}
+                </div>
+                
+                <div class="flex justify-between items-center mb-4">
+                  <div class="text-2xl font-bold text-primary-600">{property.price}</div>
+                  <div class="text-gray-600 font-semibold">{property.acreage}</div>
+                </div>
+                
+                <p class="text-gray-600 mb-6 leading-relaxed">{property.description}</p>
+                
+                <div class="mb-6">
+                  <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+                  <ul class="space-y-2">
+                    {property.features.slice(0, 3).map((feature) => (
+                      <li class="flex items-center text-sm text-gray-600">
+                        <svg class="h-4 w-4 text-primary-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div class="flex space-x-3">
+                  <a href="/contact" class="flex-1 btn-primary text-center text-sm py-2">
+                    Inquire Now
+                  </a>
+                  <button class="px-4 py-2 border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-600 hover:text-white transition-all duration-300 text-sm font-semibold">
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Investment Process -->
+    <section class="section-padding bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-16">
+          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Investment <span class="text-gradient">Process</span>
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+            Our streamlined process ensures you make informed decisions and secure the best opportunities.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="animate-on-scroll stagger-1 text-center">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              1
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Consultation</h3>
+            <p class="text-gray-600">Discuss your investment goals and preferences with our expert team.</p>
+          </div>
+
+          <div class="animate-on-scroll stagger-2 text-center">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              2
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Property Selection</h3>
+            <p class="text-gray-600">Review curated opportunities that match your investment criteria.</p>
+          </div>
+
+          <div class="animate-on-scroll stagger-3 text-center">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              3
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Due Diligence</h3>
+            <p class="text-gray-600">Comprehensive property analysis and risk assessment.</p>
+          </div>
+
+          <div class="animate-on-scroll stagger-4 text-center">
+            <div class="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
+              4
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Acquisition</h3>
+            <p class="text-gray-600">Negotiate terms and complete the transaction successfully.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Insights -->
+    <section class="section-padding bg-white">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Market <span class="text-gradient">Insights</span>
+            </h2>
+            <p class="animate-on-scroll stagger-1 text-xl text-gray-600 mb-8 leading-relaxed">
+              Stay informed with our latest market analysis and investment trends. Our research helps you identify the best opportunities and optimal timing for your investments.
+            </p>
+            
+            <div class="animate-on-scroll stagger-2 space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Market Trends</h3>
+                  <p class="text-gray-600">Regular analysis of market conditions, pricing trends, and emerging opportunities.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Performance Data</h3>
+                  <p class="text-gray-600">Detailed performance metrics and ROI analysis for different property types.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2">Future Outlook</h3>
+                  <p class="text-gray-600">Forward-looking analysis and predictions for long-term investment success.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="animate-on-scroll stagger-3 mt-8">
+              <a href="/blog" class="btn-primary">
+                Read Market Reports
+              </a>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll stagger-2">
+            <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">Current Market Stats</h3>
+              
+              <div class="space-y-6">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">Average Price per Acre</span>
+                  <span class="text-2xl font-bold text-primary-600">$12,500</span>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">YoY Price Growth</span>
+                  <span class="text-2xl font-bold text-green-600">+8.5%</span>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">Average Days on Market</span>
+                  <span class="text-2xl font-bold text-primary-600">45</span>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">Investment Grade Properties</span>
+                  <span class="text-2xl font-bold text-primary-600">24</span>
+                </div>
+              </div>
+              
+              <div class="mt-8 p-4 bg-white rounded-lg">
+                <p class="text-sm text-gray-600 mb-2">Market Outlook:</p>
+                <p class="text-gray-900 font-semibold">Strong demand continues with limited inventory driving appreciation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-primary-600 to-primary-800">
+      <div class="container-custom text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Invest in Your Future?
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-primary-100 mb-10 leading-relaxed">
+            Don't miss out on these exceptional land investment opportunities. Contact our team today to schedule a consultation and find the perfect property for your portfolio.
+          </p>
+          <div class="animate-on-scroll stagger-2 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-lg">
+              Schedule Consultation
+            </a>
+            <a href="tel:+1234567890" class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300 text-lg">
+              Call (123) 456-7890
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

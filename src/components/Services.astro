@@ -1,0 +1,131 @@
+---
+const services = [
+  {
+    title: "Land Acquisition",
+    description: "Expert guidance in identifying, evaluating, and acquiring prime land opportunities that align with your investment goals and budget.",
+    icon: "🏞️",
+    features: [
+      "Market research and analysis",
+      "Property identification",
+      "Negotiation support",
+      "Due diligence coordination"
+    ]
+  },
+  {
+    title: "Property Development",
+    description: "Comprehensive development services from initial planning through project completion, maximizing your land's potential and value.",
+    icon: "🏗️",
+    features: [
+      "Feasibility studies",
+      "Zoning and permitting",
+      "Project management",
+      "Construction oversight"
+    ]
+  },
+  {
+    title: "Investment Consulting",
+    description: "Strategic investment advice to help you build a profitable land portfolio with optimal risk management and growth potential.",
+    icon: "📈",
+    features: [
+      "Portfolio analysis",
+      "Risk assessment",
+      "Market timing strategies",
+      "ROI optimization"
+    ]
+  },
+  {
+    title: "Due Diligence",
+    description: "Thorough property investigations to ensure you make informed decisions and avoid costly surprises in your land investments.",
+    icon: "🔍",
+    features: [
+      "Title research",
+      "Environmental assessments",
+      "Survey coordination",
+      "Legal compliance review"
+    ]
+  },
+  {
+    title: "Market Analysis",
+    description: "In-depth market research and trend analysis to identify emerging opportunities and optimal timing for your land transactions.",
+    icon: "📊",
+    features: [
+      "Comparative market analysis",
+      "Trend forecasting",
+      "Demographic studies",
+      "Economic impact assessment"
+    ]
+  },
+  {
+    title: "Asset Management",
+    description: "Ongoing management and optimization of your land assets to ensure maximum returns and long-term value appreciation.",
+    icon: "💼",
+    features: [
+      "Property maintenance",
+      "Lease management",
+      "Tax optimization",
+      "Exit strategy planning"
+    ]
+  }
+];
+---
+
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Our <span class="text-gradient">Services</span>
+      </h2>
+      <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+        Comprehensive land services designed to maximize your investment potential and ensure successful outcomes at every stage of your journey.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div class={`animate-on-scroll stagger-${(index % 4) + 1} card-hover bg-white rounded-xl p-8 shadow-lg border border-gray-100`}>
+          <div class="text-4xl mb-6">{service.icon}</div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+          
+          <ul class="space-y-3 mb-8">
+            {service.features.map((feature) => (
+              <li class="flex items-center text-gray-700">
+                <svg class="h-5 w-5 text-primary-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <a href="/contact" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors duration-300">
+            Learn More
+            <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16 text-center">
+      <div class="animate-on-scroll bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-12 text-white">
+        <h3 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Start Your Land Investment Journey?
+        </h3>
+        <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
+          Let our experienced team guide you through every step of the process. Contact us today for a free consultation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="bg-white text-primary-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+            Get Free Consultation
+          </a>
+          <a href="/properties" class="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300">
+            View Properties
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

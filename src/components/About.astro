@@ -1,0 +1,119 @@
+---
+const stats = [
+  { number: "500+", label: "Properties Sold" },
+  { number: "$50M+", label: "Total Transactions" },
+  { number: "15+", label: "Years Experience" },
+  { number: "98%", label: "Client Satisfaction" }
+];
+
+const values = [
+  {
+    title: "Integrity",
+    description: "We conduct business with the highest ethical standards, ensuring transparency and honesty in every transaction.",
+    icon: "🤝"
+  },
+  {
+    title: "Expertise",
+    description: "Our team brings decades of combined experience in land acquisition, development, and investment strategies.",
+    icon: "🎯"
+  },
+  {
+    title: "Results",
+    description: "We're committed to delivering exceptional outcomes that exceed our clients' expectations and investment goals.",
+    icon: "🏆"
+  },
+  {
+    title: "Partnership",
+    description: "We build long-term relationships with our clients, serving as trusted advisors throughout their investment journey.",
+    icon: "🤝"
+  }
+];
+---
+
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+      <!-- Content -->
+      <div>
+        <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          About <span class="text-gradient">WD Land</span>
+        </h2>
+        <p class="animate-on-scroll stagger-1 text-xl text-gray-600 mb-8 leading-relaxed">
+          For over 15 years, WD Land has been the trusted partner for investors, developers, and landowners seeking to maximize their real estate potential. Our comprehensive approach combines deep market knowledge with personalized service to deliver exceptional results.
+        </p>
+        <p class="animate-on-scroll stagger-2 text-lg text-gray-600 mb-8 leading-relaxed">
+          We specialize in identifying prime land opportunities, conducting thorough due diligence, and providing strategic guidance throughout the entire acquisition and development process. Our team's expertise spans residential, commercial, agricultural, and recreational properties across diverse markets.
+        </p>
+        <div class="animate-on-scroll stagger-3">
+          <a href="/contact" class="btn-primary">
+            Work With Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="animate-on-scroll stagger-2">
+        <div class="relative">
+          <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+              alt="Professional team meeting" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-primary-600 text-white p-6 rounded-xl shadow-lg">
+            <div class="text-3xl font-bold">15+</div>
+            <div class="text-sm">Years of Excellence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="mb-20">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {stats.map((stat, index) => (
+          <div class={`animate-on-scroll stagger-${index + 1} text-center`}>
+            <div class="text-4xl md:text-5xl font-bold text-primary-600 mb-2">{stat.number}</div>
+            <div class="text-gray-600 font-medium">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div>
+      <div class="text-center mb-16">
+        <h3 class="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          Our Core Values
+        </h3>
+        <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+          These principles guide everything we do and ensure we deliver exceptional value to our clients.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {values.map((value, index) => (
+          <div class={`animate-on-scroll stagger-${(index % 4) + 1} text-center`}>
+            <div class="text-4xl mb-4">{value.icon}</div>
+            <h4 class="text-xl font-bold text-gray-900 mb-4">{value.title}</h4>
+            <p class="text-gray-600 leading-relaxed">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mission Statement -->
+    <div class="mt-20">
+      <div class="animate-on-scroll bg-gradient-to-r from-primary-50 to-primary-100 rounded-2xl p-12 text-center">
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          Our Mission
+        </h3>
+        <p class="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          To empower our clients with the knowledge, resources, and expertise needed to make informed land investment decisions that create lasting value and achieve their financial goals.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

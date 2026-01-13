@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Contact WD Land - Get Expert Land Investment Guidance";
+const pageDescription = "Ready to start your land investment journey? Contact our expert team for personalized guidance, property evaluations, and investment strategies.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  
+  <main>
+    <Hero 
+      title="Let's Start Your Land Investment Journey"
+      subtitle="Contact Us"
+      description="Ready to explore land investment opportunities? Our expert team is here to provide personalized guidance and help you achieve your investment goals."
+      primaryCTA={{ text: "Call Now", href: "tel:+1234567890" }}
+      secondaryCTA={{ text: "Send Message", href: "#contact-form" }}
+      backgroundImage="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      overlay={true}
+    />
+    
+    <Contact />
+    
+    <!-- FAQ Section -->
+    <section class="section-padding bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-16">
+          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Frequently Asked <span class="text-gradient">Questions</span>
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+            Get answers to common questions about our services and the land investment process.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="space-y-8">
+            <div class="animate-on-scroll stagger-1 bg-gray-50 rounded-xl p-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">How do you help with land acquisition?</h3>
+              <p class="text-gray-600 leading-relaxed">
+                We provide comprehensive support throughout the entire acquisition process, including market research, property identification, due diligence, negotiation, and closing coordination. Our team ensures you make informed decisions and secure the best possible deals.
+              </p>
+            </div>
+
+            <div class="animate-on-scroll stagger-2 bg-gray-50 rounded-xl p-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">What types of properties do you work with?</h3>
+              <p class="text-gray-600 leading-relaxed">
+                We specialize in all types of land investments including residential development sites, commercial properties, agricultural land, recreational properties, and industrial sites. Our expertise spans across various property types and market segments.
+              </p>
+            </div>
+
+            <div class="animate-on-scroll stagger-3 bg-gray-50 rounded-xl p-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">How long does the typical land acquisition process take?</h3>
+              <p class="text-gray-600 leading-relaxed">
+                The timeline varies depending on the complexity of the transaction, but typically ranges from 30-90 days from contract to closing. Factors affecting timeline include due diligence requirements, financing, and any necessary approvals or permits.
+              </p>
+            </div>
+
+            <div class="animate-on-scroll stagger-4 bg-gray-50 rounded-xl p-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">What are your fees for services?</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Our fee structure varies based on the scope of services and transaction size. We offer competitive rates and transparent pricing. Contact us for a detailed discussion of your needs and a customized proposal.
+              </p>
+            </div>
+
+            <div class="animate-on-scroll stagger-1 bg-gray-50 rounded-xl p-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Do you provide financing assistance?</h3>
+              <p class="text-gray-600 leading-relaxed">
+                While we don't provide direct financing, we work with a network of trusted lenders and can help connect you with appropriate financing options for your land investment. We also assist with financial modeling and investment analysis.
+              </p>
+            </div>
+
+            <div class="animate-on-scroll stagger-2 bg-gray-50 rounded-xl p-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">What makes WD Land different from other land investment companies?</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Our comprehensive approach combines deep market knowledge, personalized service, and proven results. With over 15 years of experience and $50M+ in transactions, we provide the expertise and dedication needed for successful land investments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="section-padding bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-16">
+          <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Service <span class="text-gradient">Areas</span>
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+            We serve clients across Texas and surrounding regions with expertise in local markets and regulations.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="animate-on-scroll stagger-1 text-center p-6 bg-white rounded-xl shadow-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Austin Metro</h3>
+            <p class="text-gray-600">Rapidly growing market with excellent development opportunities</p>
+          </div>
+
+          <div class="animate-on-scroll stagger-2 text-center p-6 bg-white rounded-xl shadow-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Dallas-Fort Worth</h3>
+            <p class="text-gray-600">Major metropolitan area with diverse investment options</p>
+          </div>
+
+          <div class="animate-on-scroll stagger-3 text-center p-6 bg-white rounded-xl shadow-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Houston Area</h3>
+            <p class="text-gray-600">Energy corridor and industrial development hub</p>
+          </div>
+
+          <div class="animate-on-scroll stagger-4 text-center p-6 bg-white rounded-xl shadow-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Hill Country</h3>
+            <p class="text-gray-600">Recreational and luxury residential properties</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="animate-on-scroll text-lg text-gray-600 mb-6">
+            Don't see your area listed? We work with clients nationwide. Contact us to discuss your specific location and needs.
+          </p>
+          <a href="#contact-form" class="animate-on-scroll btn-primary">
+            Discuss Your Project
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-800">
+      <div class="container-custom text-center">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-6">
+            Need Immediate Assistance?
+          </h2>
+          <p class="animate-on-scroll stagger-1 text-xl text-primary-100 mb-8">
+            For urgent matters or time-sensitive opportunities, contact us directly. Our team is available to help with immediate needs.
+          </p>
+          <div class="animate-on-scroll stagger-2 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:+1234567890" class="bg-white text-primary-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-lg inline-flex items-center justify-center">
+              <svg class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              Call (123) 456-7890
+            </a>
+            <a href="mailto:info@wdland.com" class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300 text-lg inline-flex items-center justify-center">
+              <svg class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Email Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

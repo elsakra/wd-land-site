@@ -1,0 +1,218 @@
+---
+const contactInfo = [
+  {
+    title: "Phone",
+    value: "(123) 456-7890",
+    href: "tel:+1234567890",
+    icon: "📞"
+  },
+  {
+    title: "Email",
+    value: "info@wdland.com",
+    href: "mailto:info@wdland.com",
+    icon: "✉️"
+  },
+  {
+    title: "Office",
+    value: "123 Main Street, Suite 100\nCity, State 12345",
+    href: "#",
+    icon: "📍"
+  }
+];
+---
+
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="animate-on-scroll text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Get In <span class="text-gradient">Touch</span>
+      </h2>
+      <p class="animate-on-scroll stagger-1 text-xl text-gray-600 max-w-3xl mx-auto">
+        Ready to start your land investment journey? Contact our expert team today for personalized guidance and solutions.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Contact Information -->
+      <div class="lg:col-span-1">
+        <div class="animate-on-scroll">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
+          
+          <div class="space-y-6">
+            {contactInfo.map((info, index) => (
+              <div class={`animate-on-scroll stagger-${index + 1} flex items-start space-x-4`}>
+                <div class="text-2xl">{info.icon}</div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">{info.title}</h4>
+                  {info.href.startsWith('#') ? (
+                    <p class="text-gray-600 whitespace-pre-line">{info.value}</p>
+                  ) : (
+                    <a href={info.href} class="text-primary-600 hover:text-primary-700 transition-colors duration-300 whitespace-pre-line">
+                      {info.value}
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="animate-on-scroll stagger-4 mt-8 p-6 bg-primary-50 rounded-xl">
+            <h4 class="font-semibold text-gray-900 mb-2">Office Hours</h4>
+            <div class="text-gray-600 space-y-1">
+              <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+              <p>Saturday: 9:00 AM - 4:00 PM</p>
+              <p>Sunday: By Appointment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="lg:col-span-2">
+        <div class="animate-on-scroll stagger-2 bg-white rounded-2xl shadow-lg p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8">Send Us a Message</h3>
+          
+          <form class="space-y-6" action="#" method="POST">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                  First Name *
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
+                  placeholder="John"
+                />
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                  Last Name *
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
+                  placeholder="Doe"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
+                  placeholder="(123) 456-7890"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+                Subject *
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
+              >
+                <option value="">Select a subject</option>
+                <option value="land-acquisition">Land Acquisition</option>
+                <option value="property-development">Property Development</option>
+                <option value="investment-consulting">Investment Consulting</option>
+                <option value="due-diligence">Due Diligence</option>
+                <option value="market-analysis">Market Analysis</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                Message *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300 resize-vertical"
+                placeholder="Tell us about your land investment goals and how we can help..."
+              ></textarea>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input
+                  id="consent"
+                  name="consent"
+                  type="checkbox"
+                  required
+                  class="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                />
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="consent" class="text-gray-600">
+                  I agree to receive communications from WD Land and understand that I can unsubscribe at any time. *
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="w-full btn-primary text-lg py-4"
+              >
+                Send Message
+                <svg class="ml-2 h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional CTA -->
+    <div class="mt-16 text-center">
+      <div class="animate-on-scroll bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-12 text-white">
+        <h3 class="text-3xl md:text-4xl font-bold mb-6">
+          Prefer to Talk Directly?
+        </h3>
+        <p class="text-xl mb-8 text-primary-100 max-w-2xl mx-auto">
+          Schedule a free consultation call with one of our land investment experts. We're here to answer your questions and help you get started.
+        </p>
+        <a href="tel:+1234567890" class="bg-white text-primary-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center">
+          <svg class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Call (123) 456-7890
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
